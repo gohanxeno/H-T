@@ -11,7 +11,7 @@ const port = 6900;
 
 moment().format();
 
-// ------SCSS ------//
+// SCSS 
 app.use(
   sassMiddleware({
     src: path.join(__dirname, "./assets/sass"),
@@ -24,22 +24,22 @@ app.use(
 
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-// ------Statics files ------ //
+//Statics files 
 app.use(express.static(path.join(__dirname, "./assets")));
 app.use(express.urlencoded());
 
-// ----------EJS-----------//
+//EJS
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// ------ EJS layouts ------//
+// EJS layouts 
 app.use(expressLayout);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
 
 
-// ------Router------------//
+//Router
 app.use("/", require("./routers/index"));
 
 app.listen(port, () => {
